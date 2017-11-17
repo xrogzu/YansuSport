@@ -1,0 +1,29 @@
+server:
+ port:8010
+spring:
+ application:
+  name: yansu-microservice-user
+ datasource:
+  platform: mysql
+  url: jdbc:mysql://127.0.0.1:3306/yansu_sport
+  username: root
+  password: Abcde12345
+  driver-class-name: com.mysql.jdbc.Driver
+  max-idle: 10
+  max-wait: 10000
+  min-idle: 5
+  initial-size: 5
+  schema: classpath:schema.sql
+  data: classpath:data.sql
+mybatis:
+ type-aliases-package: com.yansu.yansumicroserviceuser.domain
+eureka:
+ client:
+  serviceUrl:
+   defaultZone: http://admin:nimda@localhost:8761/eureka/
+ instance:
+  prefer-ip-address: true
+logging:
+ level:
+  root: INFO
+  
