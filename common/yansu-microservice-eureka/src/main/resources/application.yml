@@ -1,0 +1,38 @@
+spring:
+ application:
+  name: yansu-microservice-eureka
+---
+spring:
+ profiles: peer1
+server:
+ port:8761
+eureka:
+ instance:
+  hostname: eureka-instance1
+ client:
+  serviceUrl:
+   defaultZone: http://admin:nimda@localhost:8762/eureka/
+security:
+ basic:
+  enabled: true    
+ user:
+  name: admin
+  password: nimda
+---
+spring:
+ profiles: peer2
+server:
+ port:8762
+eureka:
+ instance:
+  hostname: eureka-instance2
+ client:
+  serviceUrl:
+   defaultZone: http://admin:nimda@localhost:8761/eureka/
+security:
+ basic:
+  enabled: true    
+ user:
+  name: admin
+  password: nimda
+  
