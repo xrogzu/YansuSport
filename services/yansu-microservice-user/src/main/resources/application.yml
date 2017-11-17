@@ -23,6 +23,12 @@ eureka:
    defaultZone: http://admin:nimda@localhost:8761/eureka/
  instance:
   prefer-ip-address: true
+security:
+ basic:
+  enabled: true    
+ user:
+  name: admin
+  password: nimda
 logging:
  level:
   root: INFO
