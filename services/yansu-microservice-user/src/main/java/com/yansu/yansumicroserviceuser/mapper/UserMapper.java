@@ -9,13 +9,14 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.yansu.yansumicroserviceuser.common.typeHandlers.SexTypeHandler;
 import com.yansu.yansumicroserviceuser.domain.User;
 import com.yansu.yansumicroserviceuser.enums.UserSexEnum;
 
 public interface UserMapper {
 	@Select("SELECT * from user")
 	@Results({
-		@Result(property="userSex", column="sex", javaType=UserSexEnum.class),
+		@Result(property="userSex", column="sex", javaType=UserSexEnum.class, typeHandler=SexTypeHandler.class),
 		@Result(property="headImgUrl", column="headimgurl", javaType=String.class),
 		@Result(property="subscribeTime", column="subscribe_time", javaType=Long.class),
 		@Result(property="tagidList", column="tagid_list", javaType=String.class)
@@ -25,7 +26,7 @@ public interface UserMapper {
 	
 	@Select("SELECT * FROM user WHERE id=#{id}")
 	@Results({
-		@Result(property="userSex", column="sex", javaType=UserSexEnum.class),
+		@Result(property="userSex", column="sex", javaType=UserSexEnum.class, typeHandler=SexTypeHandler.class),
 		@Result(property="headImgUrl", column="headimgurl", javaType=String.class),
 		@Result(property="subscribeTime", column="subscribe_time", javaType=Long.class),
 		@Result(property="tagidList", column="tagid_list", javaType=String.class)

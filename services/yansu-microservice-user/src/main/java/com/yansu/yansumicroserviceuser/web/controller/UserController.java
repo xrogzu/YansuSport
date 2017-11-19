@@ -15,7 +15,7 @@ public class UserController {
 	@Autowired
 	private UserMapper userMapper;
 	
-	@GetMapping("/getUsers")
+	@GetMapping("/users")
 	public List<User> getUsers(){
 		List<User> users = userMapper.getAll();
 		return users;
