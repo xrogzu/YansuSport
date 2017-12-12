@@ -18,7 +18,7 @@ public class User implements Serializable {
 	 */
 	private static final long serialVersionUID = -973960772899964402L;
 	
-	private Long id;
+	private Long userId;
 	private int subscribe;
 	private String openid;
 	private String nickname;
@@ -35,11 +35,11 @@ public class User implements Serializable {
 	private int groupid;
 	private String tagidList;
 	
-	public Long getId() {
-		return id;
+	public Long getUserId() {
+		return userId;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(Long userId) {
+		this.userId = userId;
 	}
 	public int getSubscribe() {
 		return subscribe;

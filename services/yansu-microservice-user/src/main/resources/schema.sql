@@ -1,5 +1,5 @@
 drop table if exists `user`;
-create table user (id bigint(20) not null AUTO_INCREMENT, 
+create table user (user_id bigint(20) not null AUTO_INCREMENT, 
 					subscribe int(2) not null,
 					openid varchar(40) not null,
 					nickname varchar(20) not null,
@@ -15,5 +15,5 @@ create table user (id bigint(20) not null AUTO_INCREMENT,
 					remark varchar(40) not null,
 					groupid int(5) not null,
 					tagid_list varchar(40) not null,					
-					primary key(id)
+					primary key(user_id)
 					)ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
