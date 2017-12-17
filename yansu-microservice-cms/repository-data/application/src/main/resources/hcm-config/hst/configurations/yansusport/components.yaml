@@ -1,0 +1,4 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/yansusport/hst:components:
+      jcr:primaryType: hst:components

@@ -1,6 +1,0 @@
-definitions:
-  config:
-    /hst:hst/hst:configurations/yansusport/hst:catalog:
-      jcr:primaryType: hst:catalog
-      /yansusport-catalog:
-        jcr:primaryType: hst:containeritempackage
