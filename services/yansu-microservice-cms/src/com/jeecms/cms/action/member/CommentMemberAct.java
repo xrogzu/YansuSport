@@ -29,8 +29,6 @@ import com.jeecms.core.web.util.FrontUtils;
 /**
  * 会员中心获取评论Action
  * 
- * @author 江西金磊科技发展有限公司
- * 
  */
 @Controller
 public class CommentMemberAct {
