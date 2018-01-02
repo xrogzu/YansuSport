@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.jeecms</groupId>
-  <artifactId>jeecmsv9f</artifactId>
+  <groupId>com.yansu</groupId>
+  <artifactId>yansu</artifactId>
   <packaging>war</packaging>
-  <version>9.0</version>
-  <url>http://www.jeecms.com</url>
-  <name>jeecmsv9f</name>
+  <version>1.0</version>
+  <url></url>
+  <name>yansu</name>
   <organization>
-	<name>jeecms</name>
-	<url>http://www.jeecms.com/</url>
+	<name>yansu</name>
+	<url></url>
   </organization>
   <properties>
   	<java.version>1.7</java.version>
@@ -20,7 +20,7 @@
 	<shiro.version>1.4.0</shiro.version>
 	<!-- 全文检索组件 -->
 	<lucene.version>3.0.3</lucene.version>
-	<activation.version>1.0.2</activation.version>
+	<activation.version>1.1</activation.version>
 	<antlr.version>2.7.7</antlr.version>
 	<aopalliance.version>1.0</aopalliance.version>
 	<ant.version>1.8.4</ant.version>
@@ -76,7 +76,7 @@
     </dependency>
    <!-- https://mvnrepository.com/artifact/activation/activation -->
 	<dependency>
-	    <groupId>activation</groupId>
+	    <groupId>javax.activation</groupId>
 	    <artifactId>activation</artifactId>
 	    <version>${activation.version}</version>
 	</dependency>
@@ -706,7 +706,7 @@
   </dependencies>
   
   <build>
-    <finalName>jeecmsv9f</finalName>
+    <finalName>yansu</finalName>
     <plugins>
     	<!-- 指定jdk1.7编译，否则maven update 可能调整jdk-->
     	<plugin>  
@@ -734,5 +734,5 @@
 		</plugin>
 	</plugins>
   </build>
-  <description>jeecms是企业级开源网站内容管理系统，支持网站群，支持MySQL、Oracle、SQLServer等数据库,以及具备支付和财务结算能力，支持微信小程序、微信公众号/服务号、完善的WebApi支持</description>
+  <description>严肃运动，有用的运动知识分享平台</description>
 </project>
