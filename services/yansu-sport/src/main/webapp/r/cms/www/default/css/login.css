@@ -1,4 +1,4 @@
-/*鐧诲綍妗�*/
+/*閻ц缍嶅锟�*/
 .login-box{width:350px; height:auto; min-height:360px; position:relative;}
 .login-source{width:100%; line-height:24px; text-align:center; margin-bottom:20px; font-size:14px; position:absolute; top:-34px; left:0; color:#ef3838;}
 .username-con{margin-top:40px;}
@@ -38,3 +38,6 @@
 .user-child a{width:100%; display:block; line-height:24px; text-align:center; font-size:14px;}
 
 .quick-list img{display:none;}
+
+#createAttributeDiv{font-size:16px; float:left; padding: 7px 0 0 10px;}
+

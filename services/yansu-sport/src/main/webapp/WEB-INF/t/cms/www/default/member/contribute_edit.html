@@ -174,18 +174,7 @@ function changePattern(){
   <div class="m-pos"><a href="${base}/">首页</a> > <span>会员中心</span></div>
   <div class="member clearfix">
     <div class="memberLeft clearfix"> 
-      <div class="member-nav">
-        <ul>
-        <li><a href="${base}/member/index.jspx">个人资料</a></li>
-        <li><a href="${base}/member/contribute_list.jspx" class="on">投稿管理</a></li>
-        <li><a href="${base}/member/resume.jspx">应聘管理</a></li>
-        <li><a href="${base}/member/mycomments.jspx">我的评论</a></li>
-        <li><a href="${base}/member/myguestbook.jspx">我的留言</a></li>
-        <li><a href="${base}/member/collection_list.jspx">我的收藏</a></li>
-        <li><a href="${base}/member/message_mng.jspx">站内信息</a></li>
-        <li><a href="${base}/member/account.jspx">服务中心</a></li>
-        </ul>
-      </div>
+      [#include "../include/member_center_navi.html"]
       <div class="member-main">
         <div class="member-child"><a href="${base}/member/contribute_list.jspx" class="on">稿件列表</a>|<a href="${base}/member/contribute_add.jspx">发布稿件</a></div>
         <div class="member-text tggl fbgj">

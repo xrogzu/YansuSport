@@ -769,7 +769,7 @@ h1 .position:before{width:12px; height:13px; display:inline-block; content:""; p
 .member-nav li a:hover{color:#ef3838;}
 .member-nav li .on{color:#ef3838;}
 .member-nav li .on:before{content:""; position:absolute; right:-14px; top:5px; width:4px; height:8px; display:inline-block; background:url(../images/member-nav.png) no-repeat;}
-.member-main{width:680px; float:left;}
+.member-main{width:85%; float:left;}
 
 .member-child{color:#d7d7d7; font-size:12px;}
 .member-child a{color:#ba4444; font-size:14px; margin:0 20px; line-height:18px;}
@@ -829,7 +829,7 @@ h1 .position:before{width:12px; height:13px; display:inline-block; content:""; p
 .fbgj .tggl-top{line-height:44px; font-size:13px; color:#646464; width:80px;}
 .fbgj .member-change{width:190px; border:1px solid #c7c7c7; box-sizing:border-box; -moz-box-sizing:border-box; -o-box-sizing:border-box; -webkit-box-sizing:border-box; font-size:13px; color:#1a1a1a; text-indent:6px; height:28px;}
 .fbgj td{text-align:left; text-indent:15px;}
-.fbgj textarea{margin-bottom:8px; height:60px;width:529px; border:1px solid #c7c7c7; box-sizing:border-box; -moz-box-sizing:border-box; -o-box-sizing:border-box; -webkit-box-sizing:border-box; margin-top:8px;}
+.fbgj textarea{margin-bottom:8px; height:160px;width:540px; border:1px solid #c7c7c7; box-sizing:border-box; -moz-box-sizing:border-box; -o-box-sizing:border-box; -webkit-box-sizing:border-box; margin-top:8px;}
 .fbgj img{height:32px;}
 .tggl .fbgj-tab{border:0px none; text-indent:0; padding:0 15px;}
 .tggl .fbgj-tab td{border-right:0px none; border-bottom:1px dotted #c7c7c7; padding:10px 0; text-indent:0;}

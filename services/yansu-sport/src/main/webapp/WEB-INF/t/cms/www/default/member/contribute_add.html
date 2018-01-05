@@ -174,20 +174,9 @@ function changePattern(){
   <div class="m-pos"><a href="${base}/">首页</a> > <span>会员中心</span></div>
   <div class="member clearfix">
     <div class="memberLeft clearfix"> 
-      <div class="member-nav">
-        <ul>
-        <li><a href="${base}/member/index.jspx">个人资料</a></li>
-        <li><a href="${base}/member/contribute_list.jspx" class="on">投稿管理</a></li>
-        <li><a href="${base}/member/resume.jspx">应聘管理</a></li>
-        <li><a href="${base}/member/mycomments.jspx">我的评论</a></li>
-        <li><a href="${base}/member/myguestbook.jspx">我的留言</a></li>
-        <li><a href="${base}/member/collection_list.jspx">我的收藏</a></li>
-        <li><a href="${base}/member/message_mng.jspx">站内信息</a></li>
-        <li><a href="${base}/member/account.jspx">服务中心</a></li>
-        </ul>
-      </div>
+      [#include "../include/member_center_navi.html"]
       <div class="member-main">
-        <div class="member-child"><a href="${base}/member/contribute_list.jspx">稿件列表</a>|<a href="${base}/member/contribute_add.jspx" class="on">发布稿件</a></div>
+        <div class="member-child"><a href="${base}/member/contribute_list.jspx">发布列表</a>|<a href="${base}/member/contribute_add.jspx" class="on">新的发布</a></div>
         <div class="member-text tggl fbgj">
           [#if channelList?size gt 0]
           [#include "media_upload.html"/]
@@ -197,16 +186,16 @@ function changePattern(){
           <table cellpadding="0" cellspacing="0">
             <tbody>
               <tr>
-                <td class="tggl-top">标题</td><td><input type="text" name="title" maxlength="150" class="member-change required" style="width:300px;" /><span style="color:#f00; margin-left:10px;">*</span></td>
+                <td class="tggl-top">标题</td><td><input type="text" name="title" maxlength="150" class="member-change required" style="width:85%;" placeholder="输入分享题目"/><span style="color:#f00; margin-left:10px;">*</span></td>
               </tr>
               <tr>
-                <td class="tggl-top">TAGS</td><td><input type="text" name="tagStr" maxlength="255" class="member-change" style="width:300px;" /><span style=" margin-left:10px;">用 , 分割</span></td>
+                <td class="tggl-top">标签</td><td><input type="text" name="tagStr" maxlength="255" class="member-change" style="width:85%;" /><span style=" margin-left:10px;">用 空格分割</span></td>
               </tr>
-              <tr>
+              <!--  <tr>
                 <td class="tggl-top">作者</td><td><input type="text" name="author" maxlength="100" class="member-change" /></td>
-              </tr>
+              </tr>--> 
               <tr>
-                <td class="tggl-top">栏目</td>
+                <td class="tggl-top">分类</td>
                 <td>
                 <select name="channelId" class="member-change">
                 <option value="" class="sel-disabled">--请选择--</option>
@@ -220,15 +209,21 @@ function changePattern(){
                 </td>
               </tr>
               <tr>
-                <td class="tggl-top">摘要</td><td><textarea name="description" rows="3" cols="70" maxlength="255"></textarea></td>
+                <td class="tggl-top">内容介绍</td><td><textarea name="description" rows="3" cols="70" maxlength="255" style="width:85%" placeholder="你将分享的主题是什么？包含哪些部分？请详细说明，详细的内容介绍是赢得更多读者的前提"></textarea></td>
               </tr>
               <tr>
-                <td class="tggl-top">收费设置</td>
+                <td class="tggl-top">活动收费</td>
                 <td>
-                	免费:<input name="charge" value="0" checked="checked" onclick="changeModel()" type="radio"/>
-                	收费:<input name="charge" value="1" onclick="changeModel()" type="radio"/>
-                	打赏:<input name="charge" value="2" onclick="changeModel()" type="radio"/>
-					<span id="chargeAmountSpan">金额:<input type="text" name="chargeAmount" value="0" required="true" class="required number" maxlength="10" style="width:100px"/></span>
+                	<!--  免费:<input name="charge" value="0" checked="checked" onclick="changeModel()" type="radio"/>
+                	<input name="charge" value="1" onclick="changeModel()" type="radio"/>                -->
+                	
+					<!--  <span id="chargeAmountSpan" style="display:true">-->
+					<input type="text" name="chargeAmount" value="1.0" required="true" class="required number" maxlength="10" style="width:200px; border:1px solid #c7c7c7; line-height:2; padding-left:5px" placeholder="收费价格 如:9.9"/>
+					<span>元</span>
+					
+					
+					
+					<!--  打赏:<input name="charge" value="2" onclick="changeModel()" type="radio"/>
 					<span id="rewardSpan">
 					随机:<input name="rewardPattern" value="false"  [#if !contentChargeConfig.rewardPattern]checked="checked"[/#if] type="radio" required="true"  onclick="changePattern()"/>
 					固定:<input name="rewardPattern" value="true"  [#if contentChargeConfig.rewardPattern]checked="checked"[/#if] type="radio" required="true"  onclick="changePattern()"/>
@@ -243,8 +238,16 @@ function changePattern(){
 					<input type="text" name="rewardRandomMin" value="${contentChargeConfig.rewardMin!}" required="true" class="required number" maxlength="10" style="width:50px"/>
 					<input type="text" name="rewardRandomMax" value="${contentChargeConfig.rewardMax!}" required="true" class="required number" maxlength="10" style="width:50px"/>
 					</div>
-					</span>
+					</span> -->
                 </td>
+              </tr>
+              <tr>
+              	<td class="tggl-top">众筹人数</td>
+              	<td>
+              		<input type="text" name="minParticipationNumber" class="required number" style="width:200px; border:1px solid #c7c7c7; line-height:2; padding-left:5px" placeholder="最少众筹人数 如 20"/>
+              		<span>人</span>
+              		<span style="color:#bbb; display:block">只有达到最少众筹人数，分享活动才可进行。一旦分享活动开始，最少众筹人数不会影响您的最终收益</span>
+              	</td>
               </tr>
               <tr>
                 <td class="tggl-top">多媒体</td>
@@ -386,8 +389,8 @@ function changePattern(){
         </div>
       </div>
     </div>
-    [#include "../include/member-right.html" /]
-    <div class="m-sj"></div>
+    <!--  [#include "../include/member-right.html" /]
+    <div class="m-sj"></div>-->
   </div>
 </div>
 [#include "../include/footer.html"/]
