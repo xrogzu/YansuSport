@@ -108,7 +108,7 @@ public class AbstractContentMemberAct {
 			String txt, String tagStr, Integer channelId, Integer modelId,String captcha,
 			String mediaPath,String mediaType,String[] attachmentPaths,
 			String[] attachmentNames, String[] attachmentFilenames,
-			String[] picPaths, String[] picDescs, Short charge,
+			String[] picPaths, String[] picDescs, Integer minParticipate, Short charge,
 			Double chargeAmount,Boolean rewardPattern,
 			Double rewardRandomMin,Double rewardRandomMax,
 			Double[] rewardFix,String nextUrl,
@@ -133,6 +133,7 @@ public class AbstractContentMemberAct {
 
 		Content c = new Content();
 		c.setSite(site);
+		c.setMinParticipate(minParticipate);
 		CmsModel defaultModel=cmsModelMng.getDefModel();
 		if(modelId!=null){
 			CmsModel m=cmsModelMng.findById(modelId);
@@ -237,7 +238,7 @@ public class AbstractContentMemberAct {
 			String mediaPath,String mediaType,
 			String[] attachmentPaths, String[] attachmentNames,
 			String[] attachmentFilenames, String[] picPaths, String[] picDescs,
-			Short charge,Double chargeAmount,Boolean rewardPattern,
+			Integer minParticipate, Short charge,Double chargeAmount,Boolean rewardPattern,
 			Double rewardRandomMin,Double rewardRandomMax,
 			Double[] rewardFix,String nextUrl,
 			HttpServletRequest request, HttpServletResponse response,
@@ -260,6 +261,7 @@ public class AbstractContentMemberAct {
 		Content c = new Content();
 		c.setId(id);
 		c.setSite(site);
+		c.setMinParticipate(minParticipate);
 		ContentExt ext = new ContentExt();
 		ext.setId(id);
 		ext.setTitle(title);

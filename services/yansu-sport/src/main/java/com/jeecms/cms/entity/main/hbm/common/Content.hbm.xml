@@ -14,6 +14,7 @@
 		<property name="commentsDay" column="comments_day" type="java.lang.Short" not-null="true" length="5"/>
 		<property name="downloadsDay" column="downloads_day" type="java.lang.Short" not-null="true" length="5"/>
 		<property name="upsDay" column="ups_day" type="java.lang.Short" not-null="true" length="5"/>
+		<property name="minParticipate" column="min_participate" type="java.lang.Integer" not-null="true" length="11"/>
 		<property name="recommendLevel" column="recommend_level" type="java.lang.Byte" not-null="true" length="4"/>
 		<property name="score" column="score" type="java.lang.Integer" not-null="true" length="11"/>
 		<one-to-one name="contentExt" class="ContentExt" cascade="delete"/>

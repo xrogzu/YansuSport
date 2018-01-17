@@ -6266,6 +6266,8 @@ ADD CONSTRAINT `fk_jc_item_config` FOREIGN KEY (`config_id`) REFERENCES `jc_conf
 #  Foreign keys for table jc_content
 #
 
+alter table jc_content add column min_participate int not null default 0;
+
 ALTER TABLE `jc_content`
 ADD CONSTRAINT `fk_jc_content_model` FOREIGN KEY (`model_id`) REFERENCES `jc_model` (`model_id`),
 ADD CONSTRAINT `fk_jc_content_site` FOREIGN KEY (`site_id`) REFERENCES `jc_site` (`site_id`),

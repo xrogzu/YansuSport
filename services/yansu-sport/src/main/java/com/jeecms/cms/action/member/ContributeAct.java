@@ -106,14 +106,14 @@ public class ContributeAct extends AbstractContentMemberAct {
 			String captcha,String mediaPath,String mediaType,
 			String[] attachmentPaths, String[] attachmentNames,
 			String[] attachmentFilenames, String[] picPaths, String[] picDescs,
-			Short charge,Double chargeAmount,
+			Integer minParticipate,Short charge,Double chargeAmount,
 			Boolean rewardPattern,Double rewardRandomMin,
 			Double rewardRandomMax,Double[] rewardFix,
 			String nextUrl, HttpServletRequest request,
 			HttpServletResponse response, ModelMap model) {
 		return super.save(title, author, description, txt, tagStr, channelId,modelId,
 				captcha, mediaPath,mediaType,attachmentPaths,attachmentNames,attachmentFilenames, picPaths
-				,picDescs,charge,chargeAmount,rewardPattern,
+				,picDescs,minParticipate,charge,chargeAmount,rewardPattern,
 				rewardRandomMin, rewardRandomMax,	rewardFix,nextUrl,
 				request, response, model);
 	}
@@ -164,7 +164,7 @@ public class ContributeAct extends AbstractContentMemberAct {
 			String mediaPath,String mediaType,
 			String[] attachmentPaths, String[] attachmentNames,
 			String[] attachmentFilenames, String[] picPaths, String[] picDescs,
-			Short charge,Double chargeAmount,
+			Integer minParticipate, Short charge,Double chargeAmount,
 			Boolean rewardPattern,Double rewardRandomMin,
 			Double rewardRandomMax,Double[] rewardFix,
 			String nextUrl, HttpServletRequest request,
@@ -172,7 +172,7 @@ public class ContributeAct extends AbstractContentMemberAct {
 		return super.update(id, title, author, description, txt, tagStr,
 				channelId, mediaPath,mediaType,attachmentPaths,
 				attachmentNames, attachmentFilenames
-				,picPaths,picDescs,charge,chargeAmount, rewardPattern,
+				,picPaths,picDescs,minParticipate,charge,chargeAmount, rewardPattern,
 				rewardRandomMin, rewardRandomMax,	rewardFix,nextUrl,
 				request, response, model);
 	}

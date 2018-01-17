@@ -189,11 +189,11 @@ function changePattern(){
                 <td class="tggl-top">标题</td><td><input type="text" name="title" value="${content.title!?html}" maxlength="150" class="member-change  required" style="width:300px;" /><span style="color:#f00; margin-left:10px;">*</span></td>
               </tr>
               <tr>
-                <td class="tggl-top">TAGS</td><td><input type="text" name="tagStr" value="${content.tagStr!?html}" maxlength="255" class="member-change" style="width:300px;" /><span style=" margin-left:10px;">用 , 分割</span></td>
+                <td class="tggl-top">标签</td><td><input type="text" name="tagStr" value="${content.tagStr!?html}" maxlength="255" class="member-change" style="width:300px;" /><span style=" margin-left:10px;">用 , 分割</span></td>
               </tr>
-              <tr>
+              <!--  <tr>
                 <td class="tggl-top">作者</td><td><input type="text" name="author" value="${content.author!?html}" maxlength="100" class="member-change" /></td>
-              </tr>
+              </tr>-->
               <tr>
                 <td class="tggl-top">栏目</td>
                 <td>
@@ -209,13 +209,17 @@ function changePattern(){
                 </td>
               </tr>
               <tr>
-                <td class="tggl-top">摘要</td><td><textarea name="description" rows="3" cols="70" maxlength="255">${content.description!?html}</textarea></td>
+                <td class="tggl-top">内容介绍</td><td><textarea name="description" rows="3" cols="70" maxlength="255">${content.description!?html}</textarea></td>
               </tr>
               <tr>
-                <td class="tggl-top">收费设置</td>
+                <td class="tggl-top">活动收费</td>
                 <td>
-                	免费:<input name="charge" value="0" [#if content.chargeModel==0]checked="checked"[/#if] onclick="changeModel()" type="radio"/>
-                	收费:<input name="charge" value="1" [#if content.chargeModel==1]checked="checked"[/#if] onclick="changeModel()" type="radio"/>
+                	<!--  免费:<input name="charge" value="0" [#if content.chargeModel==0]checked="checked"[/#if] onclick="changeModel()" type="radio"/> -->
+                	<!--  收费:<input name="charge" value="1" [#if content.chargeModel==1]checked="checked"[/#if] onclick="changeModel()" type="radio"/>-->
+					<input type="hidden" name="charge" value="${content.chargeModel}" />
+					<input type="text" name="chargeAmount" value="${content.chargeAmount!}" required="true" class="required number" maxlength="10" style="width:200px; border:1px solid #c7c7c7; line-height:2; padding-left:5px"/>
+					<span>元</span>
+					<!--  
 					打赏:<input name="charge" value="2" [#if content.chargeModel==2]checked="checked"[/#if] onclick="changeModel()" type="radio"/>
 					<span id="chargeAmountSpan">金额:<input type="text" name="chargeAmount" value="${content.chargeAmount!}" required="true" class="required number" maxlength="10" style="width:100px"/></span>
 					<span id="rewardSpan">
@@ -247,7 +251,16 @@ function changePattern(){
 					[/#if]
 					</div>
 					</span>
+					-->
                 </td>
+              </tr>
+              <tr>
+              	<td class="tggl-top">众筹人数</td>
+              	<td>
+              		<input type="text" name="minParticipate" value = "${content.minParticipate!}" class="required number" style="width:200px; border:1px solid #c7c7c7; line-height:2; padding-left:5px" placeholder="最少众筹人数 如 20"/>
+              		<span>人</span>
+              		<span style="color:#bbb; display:block">只有达到最少众筹人数，分享活动才可进行。一旦分享活动开始，最少众筹人数不会影响您的最终收益</span>
+              	</td>
               </tr>
               <tr>
                 <td class="tggl-top">多媒体</td>

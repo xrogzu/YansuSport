@@ -216,8 +216,8 @@ function changePattern(){
                 <td>
                 	<!--  免费:<input name="charge" value="0" checked="checked" onclick="changeModel()" type="radio"/>
                 	<input name="charge" value="1" onclick="changeModel()" type="radio"/>                -->
-                	
 					<!--  <span id="chargeAmountSpan" style="display:true">-->
+					<input type="hidden" name="charge" value="1" />
 					<input type="text" name="chargeAmount" value="1.0" required="true" class="required number" maxlength="10" style="width:200px; border:1px solid #c7c7c7; line-height:2; padding-left:5px" placeholder="收费价格 如:9.9"/>
 					<span>元</span>
 					
@@ -244,7 +244,7 @@ function changePattern(){
               <tr>
               	<td class="tggl-top">众筹人数</td>
               	<td>
-              		<input type="text" name="minParticipationNumber" class="required number" style="width:200px; border:1px solid #c7c7c7; line-height:2; padding-left:5px" placeholder="最少众筹人数 如 20"/>
+              		<input type="text" name="minParticipate" class="required number" style="width:200px; border:1px solid #c7c7c7; line-height:2; padding-left:5px" placeholder="最少众筹人数 如 20"/>
               		<span>人</span>
               		<span style="color:#bbb; display:block">只有达到最少众筹人数，分享活动才可进行。一旦分享活动开始，最少众筹人数不会影响您的最终收益</span>
               	</td>

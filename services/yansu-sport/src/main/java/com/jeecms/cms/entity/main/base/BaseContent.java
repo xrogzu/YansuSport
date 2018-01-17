@@ -31,6 +31,7 @@ public abstract class BaseContent  implements Serializable {
 	public static String PROP_CONTENT_COUNT = "contentCount";
 	public static String PROP_ID = "id";
 	public static String PROP_DOWNLOADS_DAY = "downloadsDay";
+	public static String PROP_MIN_PARTICIPATE ="minParticipate";
 
 
 	// constructors
@@ -60,7 +61,8 @@ public abstract class BaseContent  implements Serializable {
 		java.lang.Integer viewsDay,
 		java.lang.Short commentsDay,
 		java.lang.Short downloadsDay,
-		java.lang.Short upsDay) {
+		java.lang.Short upsDay,
+		java.lang.Integer minParticipate) {
 
 		this.setId(id);
 		this.setSite(site);
@@ -73,6 +75,7 @@ public abstract class BaseContent  implements Serializable {
 		this.setCommentsDay(commentsDay);
 		this.setDownloadsDay(downloadsDay);
 		this.setUpsDay(upsDay);
+		this.setMinParticipate(minParticipate);
 		initialize();
 	}
 
@@ -97,6 +100,7 @@ public abstract class BaseContent  implements Serializable {
 	private java.lang.Short upsDay;
 	private java.lang.Integer score;
 	private java.lang.Byte recommendLevel;
+	private java.lang.Integer minParticipate;
 
 	// one to one
 	private com.jeecms.cms.entity.main.ContentExt contentExt;
@@ -666,6 +670,14 @@ public abstract class BaseContent  implements Serializable {
 
 	public String toString () {
 		return super.toString();
+	}
+
+	public java.lang.Integer getMinParticipate() {
+		return minParticipate;
+	}
+
+	public void setMinParticipate(java.lang.Integer minParticipate) {
+		this.minParticipate = minParticipate;
 	}
 
 

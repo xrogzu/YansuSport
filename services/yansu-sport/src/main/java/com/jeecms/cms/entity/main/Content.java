@@ -1849,6 +1849,11 @@ public class Content extends BaseContent implements ContentInterface {
 		}else{
 			json.put("upsDay", "");
 		}
+		if (getMinParticipate()!=null){
+			json.put("minParticipate", getMinParticipate());
+		}else{
+			json.put("minParticipate", "0");
+		}
 		if (getContentCount()!=null&&getContentCount().getUpsMonth()!=null) {
 			json.put("upsMonth", getContentCount().getUpsMonth());
 		}else{
@@ -2207,10 +2212,10 @@ public class Content extends BaseContent implements ContentInterface {
 			java.lang.Byte topLevel, java.lang.Boolean hasTitleImg,
 			java.lang.Boolean recommend, java.lang.Byte status,
 			java.lang.Integer viewsDay, java.lang.Short commentsDay,
-			java.lang.Short downloadsDay, java.lang.Short upsDay) {
+			java.lang.Short downloadsDay, java.lang.Short upsDay, java.lang.Integer minParticipate) {
 
 		super(id, site, sortDate, topLevel, hasTitleImg, recommend, status,
-				viewsDay, commentsDay, downloadsDay, upsDay);
+				viewsDay, commentsDay, downloadsDay, upsDay, minParticipate);
 	}
 
 	/* [CONSTRUCTOR MARKER END] */
