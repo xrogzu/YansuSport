@@ -222,24 +222,25 @@ public class DynamicPageAct {
 			if(user==null){
 				session.setAttribute(request, response, "loginSource", "charge");
 				return FrontUtils.showLogin(request, model, site);
-			}else{
-				//非作者且未购买
-				if(!content.getUser().equals(user)){
-					//用户已登录判断是否已经购买
-					boolean hasBuy=contentBuyMng.hasBuyContent(user.getId(), content.getId());
-					if(!hasBuy){
-						try {
-							String rediretUrl="/content/buy.jspx?contentId="+content.getId();
-							if(StringUtils.isNotBlank(site.getContextPath())){
-								rediretUrl=site.getContextPath()+rediretUrl;
-							}
-							response.sendRedirect(rediretUrl);
-						} catch (IOException e) {
-							//e.printStackTrace();
-						}
-					}
-				}
 			}
+//			else{
+//				//非作者且未购买
+//				if(!content.getUser().equals(user)){
+//					//用户已登录判断是否已经购买
+//					boolean hasBuy=contentBuyMng.hasBuyContent(user.getId(), content.getId());
+//					if(!hasBuy){
+//						try {
+//							String rediretUrl="/content/buy.jspx?contentId="+content.getId();
+//							if(StringUtils.isNotBlank(site.getContextPath())){
+//								rediretUrl=site.getContextPath()+rediretUrl;
+//							}
+//							response.sendRedirect(rediretUrl);
+//						} catch (IOException e) {
+//							//e.printStackTrace();
+//						}
+//					}
+//				}
+//			}
 		}
 		String txt = content.getTxtByNo(pageNo);
 		// 内容加上关键字

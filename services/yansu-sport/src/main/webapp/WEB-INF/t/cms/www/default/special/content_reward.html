@@ -66,33 +66,9 @@ function changeAmountSubmit(value){
   </div> 
   <!-- 未选择固定打赏值 -->
   <div style="width:100%; margin-top:20px;">
-  [#if !rewardAmount??]
-	  [#if content.rewardPattern]
-	  <!-- 固定 -->
-	  <form method="post" action="${base}/content/fixSelect.jspx" id="jvForm">
-		<input name="contentId" value="${contentId!}" type="hidden" /> 
-		<input name="orderNumber" value="${orderNumber!}" type="hidden" /> 
-		<input name="chargeReward" value="${type!}" type="hidden" />
-		<input name="rewardAmount" value="${randomOne!}" id="rewardAmount" type="hidden" />
-		<div>
-		[#list content.rewardFixValues as r]
-		<input value="${r!}" type="button" onclick="changeAmountSubmit('${r!}')" 
-			[#if (r_index+1)%2=1]class="reward-btn br"[#else]class="reward-btn bl" [/#if]/> 
-		[/#list]
-		</div>
-		<input type="submit" value="打赏" class="reward-payBtn" />
-	  </form>
-	  [#else]
-	  <!-- 随机 -->
-	  <div class="reward-money">金额： <span>[#if type??&&type==2]${randomOne!}[#else]${content.chargeAmount!}[/#if]</span></div>
-	  <div class="reward-pay">支付方式</div>
-	  <div class="reward-paylist"><div><span id="wcode"></span>微信扫码支付</div><div><span id="acode"></span>支付宝扫码支付</div></div>
-	  [/#if]
-  [#else]
       <div class="reward-money">金额： <span>[#if type??&&type==2]${rewardAmount!}[#else]${content.chargeAmount!}[/#if]</span></div>
 	  <div class="reward-pay">支付方式</div>
 	  <div class="reward-paylist"><div><span id="wcode"></span>微信扫码支付</div><div><span id="acode"></span>支付宝扫码支付</div></div>
-  [/#if]
   </div>
 </div>
 [#include "../include/footer.html"/]

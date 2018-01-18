@@ -416,7 +416,7 @@ Cms.checkPerm = function(base, contentId) {
 		}else if(data==4){
 			location.href=base+"/group_forbidden.jspx";
 		}else if(data==5){
-			location.href=base+"/content/buy.jspx?contentId="+contentId;
+			//location.href=base+"/content/buy.jspx?contentId="+contentId;
 		}
 	});
 }
