@@ -4,6 +4,10 @@ import static com.jeecms.common.web.Constants.INDEX;
 import static com.jeecms.common.web.Constants.INDEX_HTML;
 import static com.jeecms.common.web.Constants.INDEX_HTML_MOBILE;
 import static  com.jeecms.cms.Constants.TPLDIR_INDEX;
+import static com.jeecms.common.web.Constants.JOB_OVERVIEW;
+import static com.jeecms.common.web.Constants.CONTENT;
+import static com.jeecms.common.web.Constants.OVERVIEW;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -22,10 +26,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.jeecms.cms.entity.main.Channel;
+import com.jeecms.cms.entity.main.CmsModel;
 import com.jeecms.cms.entity.main.Content;
 import com.jeecms.cms.entity.main.ContentCheck;
 import com.jeecms.cms.manager.assist.CmsKeywordMng;
 import com.jeecms.cms.manager.main.ChannelMng;
+import com.jeecms.cms.manager.main.CmsModelMng;
 import com.jeecms.cms.manager.main.ContentBuyMng;
 import com.jeecms.cms.manager.main.ContentMng;
 import com.jeecms.cms.web.Token;
@@ -125,8 +131,18 @@ public class DynamicPageAct {
 				// 栏目页
 				return channel(paths[0],false, pageNo, params, info, request,
 						response, model);
-			} else {
+			} else if(paths[0].equals(OVERVIEW)){
 				// 内容页
+				try {
+					Integer id = Integer.parseInt(paths[1]);
+					return jobOverview(id, pageNo, params, info, request, response,
+							model);
+				} catch (NumberFormatException e) {
+					log.debug("Content id must String: {}", paths[1]);
+					return FrontUtils.pageNotFound(request, response, model);
+				}
+			}
+			else {
 				try {
 					Integer id = Integer.parseInt(paths[1]);
 					return content(id, pageNo, params, info, request, response,
@@ -165,6 +181,32 @@ public class DynamicPageAct {
 			return channel.getMobileTplChannelOrDef();
 		}
 		return channel.getTplChannelOrDef();
+	}
+	
+	public String jobOverview(Integer id, int pageNo, String[] params, PageInfo info, 
+			HttpServletRequest request, HttpServletResponse response,ModelMap model){
+		Content content = contentMng.findById(id);
+		if (content == null) {
+			log.debug("Content id not found: {}", id);
+			return FrontUtils.pageNotFound(request, response, model);
+		}
+		CmsSite site = content.getSite();
+		String txt = content.getTxt();
+		// 内容加上关键字
+		txt = cmsKeywordMng.attachKeyword(site.getId(), txt);
+		FrontUtils.frontPageData(request, model);
+		model.addAttribute("content", content);
+		model.addAttribute("channel", content.getChannel());
+		model.addAttribute("title", content.getTitleByNo(pageNo));
+		model.addAttribute("txt", txt);
+		model.addAttribute("pic", content.getPictureByNo(pageNo));
+		FrontUtils.frontData(request, model, site);
+		String equipment=(String) request.getAttribute("ua");
+		CmsModel overviewModel = modelMng.findById(JOB_OVERVIEW);
+		if(StringUtils.isNotBlank(equipment)&&equipment.equals("mobile")){
+			return content.getMobileTplContentOrDef(overviewModel);
+		}
+		return content.getTplContentOrDef(overviewModel);
 	}
 
 	public String content(Integer id, int pageNo, String[] params,
@@ -322,4 +364,6 @@ public class DynamicPageAct {
 	private SessionProvider session;
 	@Autowired
 	private CmsSiteMng siteMng;
+	@Autowired
+	private CmsModelMng modelMng;
 }

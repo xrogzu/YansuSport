@@ -31,6 +31,7 @@ import com.jeecms.core.entity.CmsUser;
  */
 public class Channel extends BaseChannel implements HibernateTree<Integer>, PriorityInterface, Cloneable {
 	private static final long serialVersionUID = 1L;
+	private static final Integer DEFAULT_CHANNEL = 79;
 
 	public JSONObject convertToJson(Integer https, boolean showChild, boolean showTxt, List<CmsModel> modelList) {
 		JSONObject json = new JSONObject();
@@ -1019,7 +1020,7 @@ public class Channel extends BaseChannel implements HibernateTree<Integer>, Prio
 	 */
 	private static void addChildToList(List<Channel> list, Channel channel, Set<Channel> rights, Channel exclude,
 			boolean hasContentOnly) {
-		if ((rights != null && !rights.contains(channel)) || (exclude != null && exclude.equals(channel))) {
+		if ((rights != null && !rights.contains(channel)) || (exclude != null && exclude.equals(channel)) || channel.getId()==DEFAULT_CHANNEL) {
 			return;
 		}
 		list.add(channel);

@@ -18,6 +18,7 @@ import org.springframework.util.Assert;
 import com.jeecms.cms.dao.main.ContentDao;
 import com.jeecms.cms.entity.assist.CmsFile;
 import com.jeecms.cms.entity.main.Channel;
+import com.jeecms.cms.entity.main.CmsModel;
 import com.jeecms.cms.entity.main.CmsTopic;
 import com.jeecms.cms.entity.main.Content;
 import com.jeecms.cms.entity.main.ContentCheck;
@@ -33,6 +34,7 @@ import com.jeecms.cms.manager.assist.CmsCommentMng;
 import com.jeecms.cms.manager.assist.CmsFileMng;
 import com.jeecms.cms.manager.main.ChannelCountMng;
 import com.jeecms.cms.manager.main.ChannelMng;
+import com.jeecms.cms.manager.main.CmsModelMng;
 import com.jeecms.cms.manager.main.CmsTopicMng;
 import com.jeecms.cms.manager.main.ContentChargeMng;
 import com.jeecms.cms.manager.main.ContentCheckMng;
@@ -368,6 +370,8 @@ public class ContentMngImpl implements ContentMng, ChannelDeleteChecker {
 			Integer typeId,Boolean draft, Boolean contribute,CmsUser user,boolean forMember){
 		Channel channel = channelMng.findById(channelId);
 		bean.setChannel(channel);
+		CmsModel model=cmsModelMng.findById(channel.getModel().getId());
+		bean.setModel(model);
 		bean.setType(contentTypeMng.findById(typeId));
 		bean.setUser(user);
 		Byte userStep;
@@ -923,6 +927,8 @@ public class ContentMngImpl implements ContentMng, ChannelDeleteChecker {
 	private ChannelCountMng channelCountMng;
 	@Autowired
 	private ContentChargeMng contentChargeMng;
+	@Autowired
+	protected CmsModelMng cmsModelMng;
 
 	@Autowired
 	public void setChannelMng(ChannelMng channelMng) {

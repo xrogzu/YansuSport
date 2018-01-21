@@ -31,18 +31,17 @@ Cms.siteFlow("${base}", location.href, document.referrer,"${site.config.flowSwit
     <h1>${content.title}</h1>
     <div class="job-des"><span class="ye">${content.attr.salary!}</span>|<span>${content.attr.workplace!}</span>|<span>${content.attr.nums!}</span>|<span>${content.attr.nature!}</span>|<span>${content.attr.education!}</span>|  <span>${content.attr.experience!}</span></div>
     <div class="job-tag">[#list content.tags as t]<span>${t.name!}</span>[/#list]</div>
-    <div class="job_btn" onclick="Cms.jobApply('${base}','${content.id}');">投递简历</div>
+    <div class="job_btn" ><a href="${base}/content/buy.jspx?contentId=${content.id}" style="color:#ffffff">预约活动</a></div>
   </section> 
   <section class="job-item">
-    <h1>职位介绍</h1>
+    <h1>内容介绍</h1>
     <div class="job-item-txt">
       ${txt!}
     </div>
   </section>
   <section class="job-item">
-    <h1>公司介绍</h1>
     <div class="job-item-txt">
-      <p><a href="http://www.jeecms.com" target="_blank">${content.companyName!}</a></p>
+      <p><a href="http://www.jeecms.com" target="_blank" >${content.userName!}</a></p>
       <p><span>公司性质:</span> ${content.companyNature!}</p>
       <p><span>公司行业:</span> ${content.companyIndustry!}</p>
       <p><span>公司规模:</span> ${content.companyScale!}</p>

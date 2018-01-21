@@ -665,6 +665,9 @@ h1 .position:before{width:12px; height:13px; display:inline-block; content:""; p
 .reward-order .reward-order-list td{border-right:1px solid #d7d7d7; border-bottom:1px solid #d7d7d7; line-height:30px; text-indent:18px; color:#333333; font-size:14px;}
 .reward-order .reward-order-list .r-o-top td{}
 
+.buy_btn{color:#fff; font-size:18px; position:absolute; padding:8px 20px; background-color:#ff9600; display:inline-block; border-radius:3px; -moz-border-radius:3px; -o-border-radius:3px; -webkit-border-radius:3px; cursor:pointer; outline:none; right:70px; bottom:30px;}
+.buy_btn:hover{background-color:#fb9f1d;}
+
 .content-link{width:100%; padding-top:14px; border-top:1px solid #989898; color:#666666; font-size:14px; line-height:20px;}
 .content-link .prev-content{width:45%; float:left; text-align:left;}
 .content-link .prev-content i{width:20px; height:20px; display:inline-block; float:left; background:url(../images/content_tubiao.png) -66px -11px no-repeat; margin-right:6px;}

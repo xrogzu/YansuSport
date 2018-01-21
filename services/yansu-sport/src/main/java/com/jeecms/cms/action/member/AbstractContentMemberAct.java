@@ -134,17 +134,17 @@ public class AbstractContentMemberAct {
 		Content c = new Content();
 		c.setSite(site);
 		c.setMinParticipate(minParticipate);
-		CmsModel defaultModel=cmsModelMng.getDefModel();
-		if(modelId!=null){
-			CmsModel m=cmsModelMng.findById(modelId);
-			if(m!=null){
-				c.setModel(m);
-			}else{
-				c.setModel(defaultModel);
-			}
-		}else{
-			c.setModel(defaultModel);
-		}
+//		CmsModel defaultModel=cmsModelMng.getDefModel();
+//		if(modelId!=null){
+//			CmsModel m=cmsModelMng.findById(modelId);
+//			if(m!=null){
+//				c.setModel(m);
+//			}else{
+//				c.setModel(defaultModel);
+//			}
+//		}else{
+//			c.setModel(defaultModel);
+//		}
 		ContentExt ext = new ContentExt();
 		ext.setTitle(title);
 		ext.setAuthor(author);

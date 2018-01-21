@@ -4,10 +4,25 @@ package com.jeecms.common.web;
  * web常量
  */
 public abstract class Constants {
+	
+	/**
+	 * DEFAULT JOB OVERVIEW MODEL
+	 */
+	public static final Integer JOB_OVERVIEW = 8;
+    /**
+     * 预览页面
+     * 
+     */
+	public static final String OVERVIEW = "overview";
 	/**
 	 * 路径分隔符
 	 */
 	public static final String SPT = "/";
+	
+	/**
+	 * 内容页
+	 */
+	public static final String CONTENT = "content";
 	/**
 	 * 索引页
 	 */
