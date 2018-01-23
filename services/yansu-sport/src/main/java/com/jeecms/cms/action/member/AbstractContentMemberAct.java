@@ -305,9 +305,9 @@ public class AbstractContentMemberAct {
 		if (errors.ifMaxLength(author, "author", 100, true)) {
 			return errors;
 		}
-		if (errors.ifMaxLength(description, "description", 255, true)) {
-			return errors;
-		}
+//		if (errors.ifMaxLength(description, "description", 255, true)) {
+//			return errors;
+//		}
 		
 		if (errors.ifMaxLength(tagStr, "tagStr", 255, true)) {
 			return errors;

@@ -6,7 +6,7 @@ import static com.jeecms.common.web.Constants.INDEX_HTML_MOBILE;
 import static  com.jeecms.cms.Constants.TPLDIR_INDEX;
 import static com.jeecms.common.web.Constants.JOB_OVERVIEW;
 import static com.jeecms.common.web.Constants.CONTENT;
-import static com.jeecms.common.web.Constants.OVERVIEW;
+import static com.jeecms.common.web.Constants.JOBS_OVERVIEW_PATH;
 
 
 import java.io.File;
@@ -131,7 +131,7 @@ public class DynamicPageAct {
 				// 栏目页
 				return channel(paths[0],false, pageNo, params, info, request,
 						response, model);
-			} else if(paths[0].equals(OVERVIEW)){
+			} else if(paths[0].equals(JOBS_OVERVIEW_PATH)){
 				// 内容页
 				try {
 					Integer id = Integer.parseInt(paths[1]);
@@ -191,14 +191,13 @@ public class DynamicPageAct {
 			return FrontUtils.pageNotFound(request, response, model);
 		}
 		CmsSite site = content.getSite();
-		String txt = content.getTxt();
 		// 内容加上关键字
-		txt = cmsKeywordMng.attachKeyword(site.getId(), txt);
+		//txt = cmsKeywordMng.attachKeyword(site.getId(), txt);
 		FrontUtils.frontPageData(request, model);
 		model.addAttribute("content", content);
 		model.addAttribute("channel", content.getChannel());
 		model.addAttribute("title", content.getTitleByNo(pageNo));
-		model.addAttribute("txt", txt);
+		//model.addAttribute("txt", txt);
 		model.addAttribute("pic", content.getPictureByNo(pageNo));
 		FrontUtils.frontData(request, model, site);
 		String equipment=(String) request.getAttribute("ua");

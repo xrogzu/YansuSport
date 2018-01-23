@@ -9,15 +9,15 @@ public abstract class Constants {
 	 * DEFAULT JOB OVERVIEW MODEL
 	 */
 	public static final Integer JOB_OVERVIEW = 8;
-    /**
-     * 预览页面
-     * 
-     */
-	public static final String OVERVIEW = "overview";
 	/**
 	 * 路径分隔符
 	 */
 	public static final String SPT = "/";
+	
+	/**
+	 * 预览页面路径
+	 */
+	public static final String JOBS_OVERVIEW_PATH = "jobs";
 	
 	/**
 	 * 内容页

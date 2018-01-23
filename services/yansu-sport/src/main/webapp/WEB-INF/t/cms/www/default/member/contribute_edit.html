@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" ></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 <title>${site.name} - Powered by JEECMS</title>
 <link href="${resSys}/front.css" rel="stylesheet" type="text/css"/>
 <link href="${resSys}/jqueryUI/jquery.ui.css" rel="stylesheet" type="text/css"/>
@@ -195,7 +195,7 @@ function changePattern(){
                 <td class="tggl-top">作者</td><td><input type="text" name="author" value="${content.author!?html}" maxlength="100" class="member-change" /></td>
               </tr>-->
               <tr>
-                <td class="tggl-top">栏目</td>
+                <td class="tggl-top">交付形式</td>
                 <td>
                 <select name="channelId" class="member-change">
                 <option value="" class="sel-disabled">--请选择--</option>
@@ -209,7 +209,20 @@ function changePattern(){
                 </td>
               </tr>
               <tr>
-                <td class="tggl-top">内容介绍</td><td><textarea name="description" rows="3" cols="70" maxlength="255">${content.description!?html}</textarea></td>
+                <td class="tggl-top">内容介绍</td>
+                <td><textarea id="description" name="description" >${content.description!?html}</textarea></td>
+                <script type="text/javascript">
+						$(function() {
+						   	CKEDITOR.replace( 'description' ,
+						   			{
+								   		filebrowserUploadUrl : '${base}/fck/upload.jspx',  
+								   		filebrowserImageUploadUrl : '${base}/fck/upload.jspx?Type=Image',  
+								   		filebrowserFlashUploadUrl : '${base}/fck/upload.jspx?Type=Flash',
+								   		filebrowserMediaUploadURL : '${base}/fck/upload.jspx?Type=Media'
+						   		     }
+						   	);  
+						 });
+				</script>
               </tr>
               <tr>
                 <td class="tggl-top">活动收费</td>
@@ -281,6 +294,7 @@ function changePattern(){
               <tr>
                 <td class="tggl-top">播放器</td><td>[@p.radio name="mediaType" list=["WM","REAL","FLV","FLASH","CK"] value="${content.mediaType!}"/]</td>
               </tr>
+              <!--  
               <tr>
                 <td class="tggl-top">内容</td>
                 <td>
@@ -300,6 +314,7 @@ function changePattern(){
                  </select>
                 </td>
               </tr>
+              -->
               <tr>
                 <td class="tggl-top">附件</td>
                 <td style="padding:10px 5px;">

@@ -1665,6 +1665,7 @@ CREATE TABLE `jc_content_ext` (
   PRIMARY KEY (`content_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CMS内容扩展表';
 
+ALTER TABLE jc_content_ext modify column description longtext default null;
 #
 # Dumping data for table jc_content_ext
 #

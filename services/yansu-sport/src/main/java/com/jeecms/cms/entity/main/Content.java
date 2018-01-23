@@ -1,6 +1,7 @@
 package com.jeecms.cms.entity.main;
 
 import static com.jeecms.common.web.Constants.SPT;
+import static com.jeecms.common.web.Constants.JOBS_OVERVIEW_PATH;
 
 import java.sql.Timestamp;
 import java.text.DateFormat;
@@ -422,6 +423,14 @@ public class Content extends BaseContent implements ContentInterface {
 		CmsSite site = getSite();
 		StringBuilder url = site.getHttpsUrlBuffer(true, whole, false);
 		url.append(SPT).append(getChannel().getPath());
+		url.append(SPT).append(getId()).append(site.getDynamicSuffix());
+		return url.toString();
+	}
+	
+	public String getOverviewLink(){
+		CmsSite site = getSite();
+		StringBuilder url = site.getUrlBuffer(true, true, false);
+		url.append(SPT).append(JOBS_OVERVIEW_PATH);
 		url.append(SPT).append(getId()).append(site.getDynamicSuffix());
 		return url.toString();
 	}
@@ -1691,6 +1700,11 @@ public class Content extends BaseContent implements ContentInterface {
 			}
 		}else{
 			json.put("url", "");
+		}
+		if(getOverviewLink()!=null){
+			json.put("jobsOverviewLink", getOverviewLink());
+		}else{
+			json.put("jobsOverviewLink", "");
 		}
 		if (getRecommend()!=null) {
 			json.put("recommend", getRecommend());

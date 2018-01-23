@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 <title>${site.name} - 运动是严肃的事</title>
 <link href="${resSys}/front.css" rel="stylesheet" type="text/css"/>
 <script src="${resSys}/jquery.js" type="text/javascript"></script>
@@ -42,7 +42,7 @@ $(function() {
               [#list pagination.list as c]
               <tr>
                 <td>${c.id}</td>
-                <td style="text-align:left; text-indent:5px;"><a href="${c.url!}">${c.title?html}</a></td>
+                <td style="text-align:left; text-indent:5px;"><a href="${c.overviewLink!}">${c.title?html}</a></td>
                 <td>${c.channel.name}</td>
                 <td>[#if c.checked]审核通过[#elseif c.checkStep==0]未审核[#elseif c.rejected]退回[#else]审核中[/#if]</td>
                 <td>${c.views}</td>
