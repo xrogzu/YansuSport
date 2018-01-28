@@ -1,7 +1,14 @@
 package com.jeecms.core.web.util;
 
+import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.jeecms.cms.entity.main.Content;
+import com.jeecms.common.web.session.SessionProvider;
+import com.jeecms.core.entity.CmsGroup;
 import com.jeecms.core.entity.CmsSite;
 import com.jeecms.core.entity.CmsUser;
 
@@ -84,4 +91,7 @@ public class CmsUtils {
 	public static Integer getSiteId(HttpServletRequest request) {
 		return getSite(request).getId();
 	}
+	
+	
+		
 }

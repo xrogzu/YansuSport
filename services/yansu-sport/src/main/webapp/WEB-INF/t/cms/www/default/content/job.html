@@ -31,7 +31,12 @@ Cms.siteFlow("${base}", location.href, document.referrer,"${site.config.flowSwit
     <h1>${content.title}</h1>
     <div class="job-des"><span class="ye">${content.minParticipate!}人</span>|<span>${content.chargeAmount!}元</span>|<span>交付形式：${content.channel.name!}</span>|<span>${content.attr.education!}</span>|  <span>${content.attr.experience!}</span></div>
     <div class="job-tag">[#list content.tags as t]<span>${t.name!}</span>[/#list]</div>
-    <div class="job_btn" ><a href="${base}/content/buy.jspx?contentId=${content.id}" style="color:#ffffff">预约活动  ${content.chargeAmount!}元</a></div>
+    <div >已预约数量 ${contentBuyCount} 人</div>
+    [#if isOwner || bought]
+    	<div class="job_btn" ><a href="${base}/${content.channel.path}/${content.id}.jspx" style="color:#ffffff">查看内容 </a></div>
+    [#else]
+     	<div class="job_btn" ><a href="${base}/content/buy.jspx?contentId=${content.id}" style="color:#ffffff">预约活动  ${content.chargeAmount!}元</a></div>
+    [/#if] 
   </section> 
   <section class="job-item">
     <div class="job-item-txt">

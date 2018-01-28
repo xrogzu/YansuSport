@@ -80,7 +80,7 @@ $(function() {
             }
             </script>
             [#else]
-                <div>暂无消费记录</div>
+                <div>暂无消费记录,快去发现一下感兴趣的内容吧</div>
             [/#if]
             </form>
         </div>
@@ -91,5 +91,10 @@ $(function() {
   </div>
 </div>
 [#include "../include/footer.html"/]
+<script type="text/javascript">
+	$(function(){
+		$("#member_nav_account").addClass("on");
+		});
+</script>
 </body>
 </html>

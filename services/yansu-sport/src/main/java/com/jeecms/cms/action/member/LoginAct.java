@@ -27,7 +27,7 @@ public class LoginAct {
 	@RequestMapping(value = "/login_csi.jspx")
 	public String csi(HttpServletRequest request, ModelMap model) {
 		CmsSite site = CmsUtils.getSite(request);
-		// 将request中所有参数
+		// 将request中所有参数拷贝到Model中
 		model.putAll(RequestUtils.getQueryParams(request));
 		FrontUtils.frontData(request, model, site);
 		return FrontUtils.getTplPath(request, site.getSolutionPath(),

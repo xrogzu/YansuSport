@@ -3,7 +3,7 @@ package com.jeecms.cms.action.front;
 import static com.jeecms.common.web.Constants.INDEX;
 import static com.jeecms.common.web.Constants.INDEX_HTML;
 import static com.jeecms.common.web.Constants.INDEX_HTML_MOBILE;
-import static  com.jeecms.cms.Constants.TPLDIR_INDEX;
+import static com.jeecms.cms.Constants.TPLDIR_INDEX;
 import static com.jeecms.common.web.Constants.JOB_OVERVIEW;
 import static com.jeecms.common.web.Constants.CONTENT;
 import static com.jeecms.common.web.Constants.JOBS_OVERVIEW_PATH;
@@ -190,15 +190,57 @@ public class DynamicPageAct {
 			log.debug("Content id not found: {}", id);
 			return FrontUtils.pageNotFound(request, response, model);
 		}
+		CmsUser user = CmsUtils.getUser(request);
 		CmsSite site = content.getSite();
+		CmsConfig config=CmsUtils.getSite(request).getConfig();
+		Boolean preview=config.getConfigAttr().getPreview();
+		Set<CmsGroup> groups = content.getViewGroupsExt();
+		int len = groups.size();
+		// 需要浏览权限
+		if (len != 0) {
+			// 没有登录
+			if (user == null) {
+				session.setAttribute(request, response, "loginSource", "needPerm");
+				return FrontUtils.showLogin(request, model, site);
+			}
+			// 已经登录但没有权限
+			Integer gid = user.getGroup().getId();
+			boolean right = false;
+			for (CmsGroup group : groups) {
+				if (group.getId().equals(gid)) {
+					right = true;
+					break;
+				}
+			}
+			//无权限且不支持预览
+			if (!right&&!preview) {
+				String gname = user.getGroup().getName();
+				return FrontUtils.showMessage(request, model, GROUP_FORBIDDEN,
+						gname);
+			}
+			//无权限支持预览
+			if(!right&&preview){
+				model.addAttribute("preview", preview);
+				model.addAttribute("groups", groups);
+			}
+		}	
 		// 内容加上关键字
 		//txt = cmsKeywordMng.attachKeyword(site.getId(), txt);
 		FrontUtils.frontPageData(request, model);
 		model.addAttribute("content", content);
+		model.addAttribute("contentBuyCount", content.getContentBuySet().size());
 		model.addAttribute("channel", content.getChannel());
 		model.addAttribute("title", content.getTitleByNo(pageNo));
 		//model.addAttribute("txt", txt);
 		model.addAttribute("pic", content.getPictureByNo(pageNo));
+//		是否是作者
+		boolean isOwner = content.getUser().equals(user);
+		model.addAttribute("isOwner",isOwner);
+		if(!isOwner){			
+			//是否已经购买
+			boolean bought=contentBuyMng.hasBuyContent(user.getId(), content.getId());
+			model.addAttribute("bought",bought);
+		}
 		FrontUtils.frontData(request, model, site);
 		String equipment=(String) request.getAttribute("ua");
 		CmsModel overviewModel = modelMng.findById(JOB_OVERVIEW);
