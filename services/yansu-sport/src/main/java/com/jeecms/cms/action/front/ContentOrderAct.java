@@ -116,8 +116,9 @@ public class ContentOrderAct {
 				  		model.addAttribute("type", ContentCharge.MODEL_CHARGE);
 				  		model.addAttribute("webCatBrowser", webCatBrowser);
 				  		model.addAttribute("wxopenid", wxopenid);
-				  		return FrontUtils.getTplPath(request, site.getSolutionPath(),
+				  		String path = FrontUtils.getTplPath(request, site.getSolutionPath(),
 								TPLDIR_SPECIAL, CONTENT_REWARD);
+				  		return path;
 			  	    }
 			    }else{
 			    	errors.addErrorCode("error.beanNotFound","content");

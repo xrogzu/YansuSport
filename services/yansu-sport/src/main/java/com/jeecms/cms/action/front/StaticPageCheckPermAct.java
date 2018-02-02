@@ -70,7 +70,8 @@ public class StaticPageCheckPermAct {
 		//收费模式，检查是否已购买
 		if(content.getCharge()){
 			if (user == null) {
-				result="3";
+				//result="3";
+				;
 			}else{
 				if(!content.getUser().equals(user)){
 					boolean hasBuy=contentBuyMng.hasBuyContent(user.getId(), contentId);

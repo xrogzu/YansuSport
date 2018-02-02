@@ -234,13 +234,17 @@ public class DynamicPageAct {
 		//model.addAttribute("txt", txt);
 		model.addAttribute("pic", content.getPictureByNo(pageNo));
 //		是否是作者
-		boolean isOwner = content.getUser().equals(user);
-		model.addAttribute("isOwner",isOwner);
-		if(!isOwner){			
-			//是否已经购买
-			boolean bought=contentBuyMng.hasBuyContent(user.getId(), content.getId());
-			model.addAttribute("bought",bought);
+		boolean isOwner = false;
+		if(user!=null){			
+			isOwner = content.getUser().equals(user);
 		}
+		model.addAttribute("isOwner",isOwner);
+		boolean bought = false;
+		if(!isOwner && user!=null){			
+			//是否已经购买
+			bought=contentBuyMng.hasBuyContent(user.getId(), content.getId());
+		}
+		model.addAttribute("bought",bought);
 		FrontUtils.frontData(request, model, site);
 		String equipment=(String) request.getAttribute("ua");
 		CmsModel overviewModel = modelMng.findById(JOB_OVERVIEW);
