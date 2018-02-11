@@ -31,9 +31,9 @@ $(function() {
     [@cms_content_list typeId='2' channelId=channel.id recommend='1' orderBy='4' titLen='35' channelOption='1' dateFormat='yyyy-MM-dd HH:mm:ss']
       [#list tag_list as a]
     <div class="v_item">
-      <div class="v_item_img"><a href="${a.url}"><img src="${a.typeImg!}"></a></div>
+      <div class="v_item_img"><a href="${a.overviewLink}"><img src="${a.typeImg!}"></a></div>
       <div class="v_item_txt">
-        <h1><a href="${a.url}">[@text_cut s=a.title len=titLen append='...'/]</a></h1>
+        <h1><a href="${a.overviewLink}">[@text_cut s=a.title len=titLen append='...'/]</a></h1>
         <p>${a.date?string(dateFormat)}  |  播放：${a.contentCount.views!}次</p>
         <div class="video_dis">[@text_cut s=a.description len=86 append='...'/]</div>
       </div>
@@ -74,7 +74,7 @@ $(function() {
       [#list tag_pagination.list as a] 
       <div class="tssjItem" [#if (a_index+1)%3=1]style="margin-left:0;"[/#if]>	
         <a class="tssjImg" href="${a.url}"><img src="${a.typeImg!site.defImg}"></a>
-        <h1><a href="${a.url}">[@text_cut s=a.title len=titLen append='...'/]</a></h1>
+        <h1><a href="${a.overviewLink}">[@text_cut s=a.title len=titLen append='...'/]</a></h1>
         <p>${a.date?string(dateFormat)}</p>  
         <div id="caseBlanche">
           <div id="rond">

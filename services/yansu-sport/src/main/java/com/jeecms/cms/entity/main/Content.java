@@ -217,6 +217,9 @@ public class Content extends BaseContent implements ContentInterface {
 		return sourceUrl;
 	}
 
+	public int getContentBuyCount(){
+		return getContentBuySet().size();
+	}
 	public String getUrlStatic(Boolean whole, int pageNo) {
 		if (!StringUtils.isBlank(getLink())) {
 			return getLink();

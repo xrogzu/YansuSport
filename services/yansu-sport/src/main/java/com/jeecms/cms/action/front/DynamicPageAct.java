@@ -74,7 +74,7 @@ public class DynamicPageAct {
 	public String index(HttpServletRequest request,HttpServletResponse response, ModelMap model) {
 		CmsSite site = CmsUtils.getSite(request);
 		FrontUtils.frontData(request, model, site);
-	//	return FrontUtils.getTplPath(request, site.getSolutionPath(),TPLDIR_INDEX, TPL_INDEX);
+		//return FrontUtils.getTplPath(request, site.getSolutionPath(),TPLDIR_INDEX, TPL_INDEX);
 		//带有其他路径则是非法请求(非内网)
 		String uri=URLHelper.getURI(request);
 		if(StringUtils.isNotBlank(uri)&&(!(uri.equals("/")||uri.equals("/index.jhtml")))){

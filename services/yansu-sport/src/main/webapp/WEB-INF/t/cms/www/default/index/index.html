@@ -35,14 +35,17 @@ $(function() {
       <div class="rmht">
         <div class="left-nav"><span>热门课程</span></div>
         <div class="rmht-list">
-           [@cms_content_list typeId='2' count='5' orderBy='9' channelId='75' channelOption='0']
+          [@cms_content_list typeId='2' count='5' orderBy='9' channelId='75' channelOption='0']
              [#list tag_list as a]
-	          <div [#if a_index==0]class="item first"[#else]class="item"[/#if]>
+	          <div [#if a_index > -1]
+	          			class="item first"
+	          		[#else]class="item"
+	          	   [/#if]>
 	            <a href="${a.overviewLink}" target="_blank" class="title">[@text_cut s=a.title len='19' append='...' /]</a>
-	            [#if a_index==0]
+	            [#if a_index > -1]
 	            	<div class="first-des clearfix">
 	            		<a href="${a.overviewLink}" target="_blank">
-	            			<img src="${a.typeImg!}">
+	            			<img src="${a.user.userImg!}">
 	            		</a>
 	            		<span>[@text_cut s=a.description! len='34' append='...' /]</span>
 	            	</div>
@@ -69,9 +72,9 @@ $(function() {
     <div class="rdjj fl">
       <div class="nav-link"><a href="${base}/news/index.jhtml">人气课程</a></div>
       [@cms_content_list typeId='4' count='1' titLen='25' channelId='75' orderBy='4' channelOption='1' dateFormat='yyyy-MM-dd']
-      [#list tag_list as a]
-      	<div class="rdjj-top-news"><a href="${a.overviewLink}" target="_blank">[@text_cut s=a.title len=titLen append='...'/]</a></div>
-      [/#list]
+	      [#list tag_list as a]
+	      	<div class="rdjj-top-news"><a href="${a.overviewLink}" target="_blank">[@text_cut s=a.title len=titLen append='...'/]</a></div>
+	      [/#list]
       [/@cms_content_list]
       <div class="rdjj-list">
       [@cms_content_list typeId='1,2,3' count='18' orderBy='4' channelId='75' channelOption='1' dateFormat='yyyy-MM-dd HH-mm']
@@ -85,6 +88,7 @@ $(function() {
     </div>
     <div class="right-fr fr">
       <div class="home-banner" id="section-focus-pic">
+       滚动图片
         <div class="bd" data-scro="list">          
           [@cms_content_list typeId='2' recommend='1' channelId='75,76' orderBy='4' titLen='22' channelOption='0' dateFormat='yyyy-MM-dd']      
           <ul>
