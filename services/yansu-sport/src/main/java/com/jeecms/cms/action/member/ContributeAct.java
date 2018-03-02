@@ -39,6 +39,7 @@ public class ContributeAct extends AbstractContentMemberAct {
 	public static final String CONTRIBUTE_LIST = "tpl.contributeList";
 	public static final String CONTRIBUTE_ADD = "tpl.contributeAdd";
 	public static final String CONTRIBUTE_EDIT = "tpl.contributeEdit";
+	public static final String CONTRIBUTE_CONTENT_EDIT = "tpl.contributeContentEdit";
 	public static final String CONTRIBUTE_UPLOADMIDIA = "tpl.uploadMedia";
 	public static final String CONTRIBUTE_UPLOADATTACHMENT = "tpl.uploadAttachment";
 
@@ -119,7 +120,7 @@ public class ContributeAct extends AbstractContentMemberAct {
 	}
 
 	/**
-	 * 会员投稿修改
+	 * 文章修改
 	 * 
 	 * @param id
 	 *            文章ID
@@ -133,6 +134,24 @@ public class ContributeAct extends AbstractContentMemberAct {
 			HttpServletResponse response, ModelMap model) {
 		return super.edit(id, CONTRIBUTE_EDIT, request, response, model);
 	}
+	
+	/**
+	 * 文章内容修改
+	 * 
+	 * @param id
+	 *            文章ID
+	 * @param request
+	 * @param response
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/member/contribute_content_edit.jspx")
+	public String contentEdit(Integer id, HttpServletRequest request,
+			HttpServletResponse response, ModelMap model) {
+		return super.edit(id, CONTRIBUTE_CONTENT_EDIT, request, response, model);
+	}
+	
+	
 
 	/**
 	 * 会有投稿更新

@@ -44,10 +44,27 @@ $(function() {
                 <td>${c.id}</td>
                 <td style="text-align:left; text-indent:5px;"><a href="${c.overviewLink!}">${c.title?html}</a></td>
                 <td>${c.channel.name}</td>
-                <td>[#if c.checked]审核通过[#elseif c.checkStep==0]未审核[#elseif c.rejected]退回[#else]审核中[/#if]</td>
+                <td>[#if c.checked??&&c.contentBuyCount gte c.minParticipate]
+                		审核通过且达标
+                	[#elseif c.checked]
+                		审核通过
+                	[#elseif c.checkStep==0]
+                		未审核
+                	[#elseif c.rejected]
+                		退回
+                	[#else]审核中
+                	[/#if]
+                </td>
                 <td>${c.views}</td>
                 <td>${c.releaseDate?string('yyyy-MM-dd')}</td>
-                <td>[#if c.checkStep==0||c.rejected]<a href="contribute_edit.jspx?id=${c.id}&nextUrl=contribute_list.jspx">修改<a> | <a href="contribute_delete.jspx?ids=${c.id}&nextUrl=contribute_list.jspx">删除<a>[#else]修改 | 删除[/#if]</td>
+                <td>[#if c.checkStep==0||c.rejected]
+                		<a href="contribute_edit.jspx?id=${c.id}&nextUrl=contribute_list.jspx">修改<a> | <a href="contribute_delete.jspx?ids=${c.id}&nextUrl=contribute_list.jspx">删除<a>
+                	[#elseif c.checked??&&c.contentBuyCount gte c.minParticipate]
+                		<a href="contribute_content_edit.jspx?id=${c.id}&nextUrl=contribute_list.jspx">编辑正文</a>
+                	[#else]
+                		修改 | 删除
+                	[/#if]
+                </td>
               </tr>
               [/#list]
             </tbody>

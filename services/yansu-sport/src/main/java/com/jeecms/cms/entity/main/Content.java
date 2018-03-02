@@ -112,7 +112,20 @@ public class Content extends BaseContent implements ContentInterface {
 		/**
 		 * 归档
 		 */
-		pigeonhole
+		pigeonhole,
+		/**
+		 * 达标
+		 */
+		goal,
+		/**
+		 * 完成
+		 */
+		completed,
+		/**
+		 * 终审通过
+		 */
+		final_checked
+		
 	};
 	
 	public static int DATA_CONTENT=0;

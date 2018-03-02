@@ -192,8 +192,7 @@ public class AbstractContentMemberAct {
 		// 获得本站栏目列表
 		Set<Channel> rights = user.getGroup().getContriChannels();
 		List<Channel> topList = channelMng.getTopList(site.getId(), true);
-		List<Channel> channelList = Channel.getListForSelect(topList, rights,
-				true);
+		List<Channel> channelList = Channel.getListForSelect(topList, rights,true);
 		model.addAttribute("content", content);
 		model.addAttribute("site", site);
 		model.addAttribute("channelList", channelList);
@@ -375,8 +374,9 @@ public class AbstractContentMemberAct {
 				return true;
 			}
 			// 文章级别大于0，不允许修改
-			if (c.getCheckStep() > 0) {
-				errors.addErrorCode("member.contentChecked");
+			if (c.getCheckStep() > 0 && (c.getMinParticipate() > c.getContentBuyCount())) {
+				//errors.addErrorCode("member.contentChecked");
+				errors.addErrorCode("content.error.afterCheckUpdate");
 				return true;
 			}
 		}

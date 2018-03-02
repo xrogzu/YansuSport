@@ -19,7 +19,7 @@ public class ContentCheck extends BaseContentCheck {
 	 */
 	public static final byte REJECT = -1;
 	/**
-	 * 已审核
+	 * 审核通过
 	 */
 	public static final byte CHECKED = 2;
 	/**
@@ -34,6 +34,21 @@ public class ContentCheck extends BaseContentCheck {
 	 * 归档
 	 */
 	public static final byte PIGEONHOLE = 5;
+	
+	/**
+	 * 达标
+	 */
+	public static final byte GOAL = 6;
+	
+	/**
+	 * 完成
+	 */
+	public static final byte COMPLETED = 7;
+	
+	/**
+	 * 终审通过
+	 */
+	public static final byte FINAL_CHECKED = 8;
 
 	public void init() {
 		byte zero = 0;

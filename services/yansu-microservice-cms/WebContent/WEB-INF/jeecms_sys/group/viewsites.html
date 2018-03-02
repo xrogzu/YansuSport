@@ -1,8 +1,0 @@
-<@childSite sites=siteList/>
-<#macro childSite sites>
-<#list sites as s>
-<li >
- <input class="channel-right"  onclick='channelOpen(${s.id})' value="${s.shortName}" type="button" />
-</li>
-</#list>
-</#macro>
